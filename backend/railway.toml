@@ -1,0 +1,10 @@
+# In Railway: set the service root directory to `backend` (or deploy from this folder).
+# Set env: NEO4J_URI, NEO4J_USER, NEO4J_PASSWORD, OPENAI_API_KEY, CORS_ORIGINS
+# https://docs.railway.app/deploy/dockerfiles
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+healthcheckPath = "/api/health"
