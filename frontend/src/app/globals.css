@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary palette */
+  --almond-silk: #d0b8ac;
+  --powder-petal: #f3d8c7;
+  --linen: #efe5dc;
+  --porcelain: #fbfefb;
+  --white: #ffffff;
+
+  /* Text colors */
+  --text-primary: #2d2420;
+  --text-secondary: #6b5b50;
+  --text-muted: #9a8b80;
+
+  /* Accent colors for graph nodes */
+  --node-biomarker: #7c9eb2;
+  --node-symptom: #d4956a;
+  --node-condition: #c46b6b;
+  --node-evidence: #8aad7e;
+  --node-risk: #c4a94d;
+
+  /* UI elements */
+  --border: #e0d5cc;
+  --shadow: rgba(45, 36, 32, 0.06);
+  --card-bg: #ffffff;
+  --page-bg: #fbfefb;
+  --input-bg: #efe5dc;
+  --hover: #f3d8c7;
+  --active: #d0b8ac;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--page-bg);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--linen);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--almond-silk);
+  border-radius: 3px;
+}
+
+::selection {
+  background: var(--powder-petal);
+  color: var(--text-primary);
+}
+
+@layer components {
+  .ng-page-enter {
+    animation: ng-fade-in 200ms ease-out;
+  }
+
+  @keyframes ng-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .ng-card-lift {
+    @apply transition-all duration-200 ease-out;
+  }
+
+  .ng-card-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(45, 36, 32, 0.08);
+  }
+
+  .ng-btn-scale {
+    @apply transition-transform duration-150 ease-out;
+  }
+
+  .ng-btn-scale:hover {
+    transform: scale(1.02);
+  }
+
+  .ng-msg-in {
+    animation: ng-slide-up 150ms ease-out;
+  }
+
+  @keyframes ng-slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-graph-bg {
+    background-color: var(--porcelain);
+    background-image: radial-gradient(circle at 1px 1px, var(--powder-petal) 1px, transparent 0);
+    background-size: 28px 28px;
+  }
+}
